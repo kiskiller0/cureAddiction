@@ -37,9 +37,10 @@
             echo '<form method="post" action="addDoctor.php">';
             $query = mysqli_query($conn, $sql);
             while($data = mysqli_fetch_assoc($query)) {
+                $username = $data['username'];
                 echo '<div class="addDocBox">';
-                echo '<label class="docListItem docLabel">' . $data['username'] . '</label>';
-                echo '<input class="docListItem addDocButton" type="submit" name="username" value="add doctor">';
+                echo '<label class="docListItem docLabel">' . $username . '</label>';
+                echo '<input class="docListItem addDocButton" type="submit" name="username" value="'. $username . '">';
                 echo '</div>';
             }
             echo '</form><br>';
