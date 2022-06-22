@@ -4,9 +4,15 @@
 [] add remove users functionality for user of type admin
 [] add extra fields that show if user type is patient, that get addiction info
 [] add patients in the doctor's feed that are associated with him, show their info when name cliked! 
-
+[*] make check to see if doctor already added!
+[*] fix the fact that there is no login password check at all lol!
 
 git reset // reset the staging area!
 
 cloning ?
 git clone  addr.git
+
+
+
+[] dbFunctions.php has problems identifying the $conn object imported from db.php
+    working in cureAddiction directroy rather that the other one!

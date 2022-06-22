@@ -28,7 +28,7 @@ if (empty($_POST["username"])) {
     $sql = "select * from association where id_doctor = " . $idDoctor . " and id_patient = ". $idPatient . ";";
     // echo $sql;
     if (mysqli_fetch_assoc(mysqli_query($conn, $sql))) {
-        die ("doctor already added to your list of doctors!");
+        die ("doctor already added to your list of doctors!<br>" . '<a href="index.php"> go back! </a>');
     }
     // end of check!
     // echo "idPatient: $idPatient";

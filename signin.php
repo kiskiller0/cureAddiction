@@ -40,11 +40,12 @@ if (isset($_SESSION["username"])) {
 }
 
 echo "not saved!";
-if (getAttribute($conn, $tableName, "username", $_POST["username"])) {
+$user = getAttribute($conn, $tableName, "username", $_POST["username"]);
+if ($user["username"] && $user["password"] == $_POST["password"]) {
     $_SESSION["username"] = $_POST["username"];
     $_SESSION["table"] = $tableName;
     header("Location: index.php");
     die();
 } else {
-    die("user not indb!");
+    die("user not indb! or password wrong! can't bother to chekc!");
 }

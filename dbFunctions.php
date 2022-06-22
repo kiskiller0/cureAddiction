@@ -3,6 +3,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
+require_once "db.php";
+
 function insertTextAttribute($connection, $tableName, $attributes, $values)
 {
     $sql = "insert into $tableName(";
@@ -35,9 +37,9 @@ function insertTextAttribute($connection, $tableName, $attributes, $values)
 function getAttribute($connection, $tableName, $attributeName, $value)
 {
     $sql = "
-        select $attributeName from $tableName
+        select * from $tableName
         where $attributeName = '$value';
     ";
     // echo $sql; // debug mode only!
-    return mysqli_fetch_assoc(mysqli_query($connection, $sql));
+    return mysqli_fetch_assoc(mysqli_query($conn, $sql));
 }
