@@ -1,0 +1,12 @@
+[*] get posts by associated doctors query
+[*] create post form for users of type doctor
+[*] show posts in the feed (index.php) when username of user of type patient is saved in $_SESSION
+[] add remove users functionality for user of type admin
+[] add extra fields that show if user type is patient, that get addiction info
+[] add patients in the doctor's feed that are associated with him, show their info when name cliked! 
+
+
+git reset // reset the staging area!
+
+cloning ?
+git clone  addr.git
