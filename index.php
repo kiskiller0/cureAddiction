@@ -25,8 +25,13 @@
 		require_once "html/signin.html";
 	} else {
 		$petName = $_SESSION["table"] == "doctor" ? "Dr." : "dear ";
-		echo "<h3> Hello $petName<span id=\"username\">" . $_SESSION['username'] . "</span>, how are you doing today!</h3?>";
-		echo '<a href="logout.php">log out!</a>';
+
+		echo 
+		"<div class=\"flex_welcome\">
+			<div>
+			<h3> Hello $petName<span id=\"username\">" . $_SESSION['username'] . "</span>, how are you doing today!</h3?></div>";
+			echo '<div><a id="logout" href="logout.php">log out!</a></div>
+		</div>';
 	?>
 	<?php
 		if ($_SESSION["table"] == "doctor") {
@@ -40,7 +45,6 @@
 			while ($data = mysqli_fetch_assoc($query)) {
 				$username = $data['username'];
 				echo '<div class="addDocBox">';
-				echo '<label class="docListItem docLabel">' . $username . '</label>';
 				echo '<input class="docListItem addDocButton" type="submit" name="username" value="' . $username . '">';
 				echo '</div>';
 			}

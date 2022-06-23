@@ -21,7 +21,7 @@ require_once "db.php";
 
 // front end cheks as well!
 if (!isset($_POST["type"])) {
-    $needed_values = array("username", "password", "address", "email");
+    $needed_values = array("username", "password", "address", "email", "frequency", "drug");
     $tableName = "patient";
 } else {
     $needed_values = array("username", "password", "address", "email", "telephone");

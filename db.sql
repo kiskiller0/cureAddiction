@@ -43,3 +43,10 @@ create table posts (
     date_post datetime DEFAULT CURRENT_TIMESTAMP,
     foreign key(id_doctor) references doctor(id)
 );
+
+
+alter table patient
+add frequency int;
+
+alter table patient
+add drug varchar(50);

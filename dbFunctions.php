@@ -34,12 +34,14 @@ function insertTextAttribute($connection, $tableName, $attributes, $values)
         or die("error executing : '$sql' into table $tableName car:je ne sais pas comment imprimer l'error mysql d'apres php! ");
 }
 
-function getAttribute($connection, $tableName, $attributeName, $value)
-{
+function getAttribute($conn, $tableName, $attributeName, $value) {
+
     $sql = "
         select * from $tableName
         where $attributeName = '$value';
     ";
-    // echo $sql; // debug mode only!
+
+    // echo "getAttribute: " . $sql . "<br>"; // debug mode only!
+
     return mysqli_fetch_assoc(mysqli_query($conn, $sql));
 }

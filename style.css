@@ -20,8 +20,8 @@ h2 {
     font-family: 'system-ui';
     box-shadow: 5px 5px 10px rgb(0,0,0,0.3);
     margin: auto;
-
 }
+
 .form_div {
     text-transform: uppercase;
 }
@@ -31,10 +31,7 @@ h2 {
     max-width: fit-content;
     display: block;
 }
-/* .info_div {
-    text-align: center;
-    margin-top: 20px;
-} */
+
 .info_div {
     letter-spacing: 1px;
 }
@@ -72,7 +69,6 @@ h2 {
     color: red;
 }
 
-
 .postDiv{
     background-color: #FFE6D4;
     border: 1px solid black;
@@ -81,14 +77,52 @@ h2 {
     margin: auto;
     margin-bottom: 1em;
 }
+
 .date {
     
     font-style: italic;
 }
+
 .docName {
     font-weight: bold;
 }
 
 #username {
     font-size: 1.1em;
+}
+
+.doctorSpecific {
+    display: inline;
+}
+
+.patientSpecific {
+    display: inline;
+}
+
+.patientBox {
+    width: fit-content;
+    border: 1px solid black;
+}
+
+#username {
+    text-decoration: underline;
+    font-weight: bold;
+    font-style: italic;
+}
+
+#logout {
+    border: 1px solid black;
+    border-radius: 1px;
+    background-color: cadetblue;
+}
+
+.flex_welcome {
+    border: 1px solid black;
+    width: inherit;
+    margin: auto;
+    margin-bottom: 2em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    /* justify-content: center; */
 }

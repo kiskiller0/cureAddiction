@@ -1,22 +1,36 @@
 <h2>Signup</h2>
-<form action="signup.php" method="post" class="form_class">
+<form action="signup.php" method="post" class="form_class" id="signupForm">
     <div id="signup" class="form_div">
         <label for="username">username:</label>
         <input class="field_class" name="username" type="text">
+        
         <label for="password">password:</label>
         <input class="field_class" name="password" type="text">
+
         <label for="first_name">first_name:</label>
         <input class="field_class" name="fname" type="text">
+
         <label for="last_name">last_name:</label>
         <input class="field_class" name="lname" type="text">
+
         <label for="address">address:</label>
         <input class="field_class" name="address" type="text">
+
         <label for="email">email:</label>
         <input class="field_class" name="email" type="email">
-        <label for="telephone" id="phoneLabel">telephone</label>
-        <input class="field_class" type="text" name="telephone" id="phoneField">
+
+        <label for="telephone" class="doctorSpecific">telephone</label>
+        <input class="field_class doctorSpecific" type="text" name="telephone">
+
+        <label for="frequency" class="patientSpecific">frequency</label>
+        <input class="field_class patientSpecific" type="text" name="frequency">
+
+        <label for="drug" class="patientSpecific">drug</label>
+        <input class="field_class patientSpecific" type="text" name="drug">
+
         <label for="type:">are you doctor?:</label>
         <input class="field_class" type="checkbox" value="doctor" name="type" id="isDoctor">
+
         <input type="submit" class="submit_class" value="regiester!">
     </div>
 </form>
