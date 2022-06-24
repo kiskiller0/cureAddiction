@@ -26,11 +26,11 @@
 	} else {
 		$petName = $_SESSION["table"] == "doctor" ? "Dr." : "dear ";
 
-		echo 
+		echo
 		"<div class=\"flex_welcome\">
 			<div>
 			<h3> Hello $petName<span id=\"username\">" . $_SESSION['username'] . "</span>, how are you doing today!</h3?></div>";
-			echo '<div><a id="logout" href="logout.php">log out!</a></div>
+		echo '<div><a id="logout" href="logout.php">log out!</a></div>
 		</div>';
 	?>
 	<?php
@@ -38,48 +38,55 @@
 			require_once "html/create_post.html";
 			require_once "myPatients.php";
 		} else {
-			$sql = "select username from doctor;";
-			echo "<br>available doctors:<br>";
-			echo '<form method="post" action="addDoctor.php">';
-			$query = mysqli_query($conn, $sql);
-			while ($data = mysqli_fetch_assoc($query)) {
-				$username = $data['username'];
-				echo '<div class="addDocBox">';
-				echo '<input class="docListItem addDocButton" type="submit" name="username" value="' . $username . '">';
-				echo '</div>';
-			}
-			echo '</form><br>';
-			echo "<h3> Posts from your doctors:</h3>";
-			$yourId = "select id from patient where username = '" . $_SESSION["username"] . "';";
-			$yourId = mysqli_query($conn, $yourId);
-			$yourId = mysqli_fetch_assoc($yourId)['id'];
-			// echo $yourId;
+			if ($_SESSION["table"] == "patient") {
+				$sql = "select username from doctor;";
+				echo "<br>available doctors:<br>";
+				echo '<form method="post" action="addDoctor.php">';
+				$query = mysqli_query($conn, $sql);
+				while ($data = mysqli_fetch_assoc($query)) {
+					$username = $data['username'];
+					echo '<div class="addDocBox">';
+					echo '<input class="docListItem addDocButton" type="submit" name="username" value="' . $username . '">';
+					echo '</div>';
+				}
+				echo '</form><br>';
+				echo "<h3> Posts from your doctors:</h3>";
+				$yourId = "select id from patient where username = '" . $_SESSION["username"] . "';";
+				$yourId = mysqli_query($conn, $yourId);
+				$yourId = mysqli_fetch_assoc($yourId)['id'];
+				// echo $yourId;
 
-			$sql =
-				"
+				$sql =
+					"
                 select content, date_post, id_doctor from posts
                 where id_doctor in (
                 select id_doctor from association where id_patient = $yourId
                 );
             ";
-			// echo $sql;
+				// echo $sql;
 
-			$fetchedResults = mysqli_query($conn, $sql);
+				$fetchedResults = mysqli_query($conn, $sql);
 
-			while ($content = mysqli_fetch_assoc($fetchedResults)) {
-				$sql = "select username from doctor where id = " . $content["id_doctor"] . ";";
-				$doctorUsername = mysqli_fetch_assoc(mysqli_query($conn, $sql))['username'];
-				echo '
+				while ($content = mysqli_fetch_assoc($fetchedResults)) {
+					$sql = "select username from doctor where id = " . $content["id_doctor"] . ";";
+					$doctorUsername = mysqli_fetch_assoc(mysqli_query($conn, $sql))['username'];
+					echo '
                     <div class="postDiv">
                         <p class="doctorId"> ' . $doctorUsername . ' said:</p>
                         <p class="postContent">' . $content['content'] . ' </p>
                         <p class="date">at: ' . $content['date_post'] . '
                     </div>
                 ';
+				}
+			} else {
+				header ('Location: admin.php');
 			}
 		}
 	}
 	?>
+
+
+	<div id="adminLogin"><a href="admin.php">Admin?</a></div>
 </body>
 <script src="script.js"></script>
 

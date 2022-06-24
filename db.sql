@@ -50,3 +50,13 @@ add frequency int;
 
 alter table patient
 add drug varchar(50);
+
+create table admin (
+    id int primary key AUTO_INCREMENT,
+    username varchar(40) not null unique,
+    password varchar(40) not null unique,
+    email varchar(40),
+    datesub datetime DEFAULT CURRENT_TIMESTAMP
+)
+
+insert into admin(username, password, email) values('admin', 'admin', 'kiskiller0@gmail.com');

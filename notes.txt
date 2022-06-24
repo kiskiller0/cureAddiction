@@ -9,13 +9,3 @@
 [] design stuff
 
 
-
-git reset // reset the staging area!
-
-cloning ?
-git clone  addr.git
-
-
-
-[] dbFunctions.php has problems identifying the $conn object imported from db.php
-    working in cureAddiction directroy rather that the other one!
