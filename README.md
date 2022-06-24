@@ -35,5 +35,3 @@ form values are not sanitized in backend, so you can insert malicious sql code a
 ## Fatal mistakes:
 - inserting a post that contains " ' " example: isn't it a good day?
 - So the sql need sanitization and character escaping asap!
-- deleting users by admin requires deactivating the foreign key check, and then re-enabling it, which is more advanced than the scope of the project!
-- so, admin can only view currently!
