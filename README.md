@@ -19,7 +19,7 @@ form values are not sanitized in backend, so you can insert malicious sql code a
     - ```sql
         insert into admin(username, password, email) values(u,p,e);
         ```
-    - substitute u, p, e with values according to your case.
+    - substitute u, p, e with values of your choice according to your case.
 1. clone this repo into your htdocs.
 -   ```bash
     cd /opt/lampp/htdocs
