@@ -41,7 +41,7 @@ function getAttribute($conn, $tableName, $attributeName, $value) {
         where $attributeName = '$value';
     ";
 
-    // echo "getAttribute: " . $sql . "<br>"; // debug mode only!
+    echo "getAttribute: " . $sql . "<br>"; // debug mode only!
 
     return mysqli_fetch_assoc(mysqli_query($conn, $sql));
 }

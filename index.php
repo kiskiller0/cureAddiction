@@ -79,14 +79,19 @@
                 ';
 				}
 			} else {
-				header ('Location: admin.php');
+				header('Location: admin.php');
 			}
 		}
 	}
 	?>
 
-
+	<?php
+		if (empty($_SESSION["username"])) {
+	?>
 	<div id="adminLogin"><a href="admin.php">Admin?</a></div>
+	<?php
+		}
+	?>
 </body>
 <script src="script.js"></script>
 

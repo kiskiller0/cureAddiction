@@ -16,23 +16,23 @@ if (!empty($_SESSION["username"]) && !empty($_SESSION["table"])) {
         echo "hello sir " . $_SESSION["username"] . "<br>click the username of the user whom you want to delete:<br>";
         // printing a list of patients:
         echo "<br>patients:<br>";
-        echo "<form action=\"deletePatient.php\">";
-
+        
         while ($p = mysqli_fetch_assoc($pQuery)) {
-            echo "<input type=\"submit\" value=\"". $p["username"] ."\">";
+            echo "<form action=\"deletePatient.php\" method=\"post\">";
+            echo "<input name=\"username\" type=\"submit\" value=\"". $p["username"] ."\">";
+            echo "</form>";
         }
 
-        echo "</form>";
 
         // printing a list of doctors:
         echo "<br>doctors:<br>";
-        echo "<form action=\"deleteDoctors.php\">";
-
+        
         while ($d = mysqli_fetch_assoc($dQuery)) {
-            echo "<input type=\"submit\" value=\"". $d["username"] ."\">";
+            echo "<form action=\"deleteDoctor.php\" method=\"post\">";
+            echo "<input name=\"username\" type=\"submit\" value=\"". $d["username"] ."\">";
+            echo "</form>";
         }
 
-        echo "</form>";
 
         echo "<a href=\"logout.php\">Log Out!</a>";
 

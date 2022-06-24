@@ -4,6 +4,9 @@
 
 #### First of all, the design is **UGLY!** I'm counting on the backend functionality.
 
+## The expected functionality:
+    
+
 This is functional! **but**, it needs tons of refactoring!
 also, it is not sanitized as it is not supposed to be put into production!
 this is easily exploitable!
@@ -28,3 +31,9 @@ form values are not sanitized in backend, so you can insert malicious sql code a
 1. start xampp (it might work with easy php, but it was not tested! proceed at your own responsibility!).
 1. navigate to the localhost/cureAddiction link in your favorite webbrowser!
     -   localhost/cureAddiction/
+
+## Fatal mistakes:
+- inserting a post that contains " ' " example: isn't it a good day?
+- So the sql need sanitization and character escaping asap!
+- deleting users by admin requires deactivating the foreign key check, and then re-enabling it, which is more advanced than the scope of the project!
+- so, admin can only view currently!
